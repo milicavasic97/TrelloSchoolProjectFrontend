@@ -1,0 +1,9 @@
+.page-padding-top
+{
+    padding-top: 80px;
+}
+
+.trello-layout-overflow {
+    overflow-y: auto;
+    overflow-x: auto;
+}

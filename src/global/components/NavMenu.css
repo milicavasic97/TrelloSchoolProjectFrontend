@@ -1,0 +1,93 @@
+.trello-heading-nav {
+    font-size: 30px;
+}
+
+.navbar-colors {
+    color: #fff;
+    background-color: #1c2833;
+    opacity: 0.9;
+}
+
+.navbar-nb {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    max-width: 1500px;
+}
+  
+.navbar-logo {
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none !important;
+}
+
+    .navbar-logo:hover {
+        color: white;
+    }
+
+  
+.fa-typo3 {
+    margin-left: 0.5rem;
+    font-size: 1.8rem;
+}
+  
+.nav-menu {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 10px;
+    list-style: none;
+    text-align: center;
+    width: 60vw;
+    justify-content: end;
+    margin-right: 2rem;
+    padding: unset;
+}
+  
+.nav-links {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding-top: 2rem;
+    padding-bottom: .6rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    height: 100%;
+}
+  
+    .nav-links:hover, .nav-links.active-link {
+        transition: all 0.2s ease-out;
+        color: #808080 !important;
+        text-decoration-style:-moz-none;
+    }
+  
+.menu-icon {
+    display: none;
+}
+
+.navbar-nb a.nav-link {
+    color: #fff !important;
+}
+  
+.navbar-nb a.nav-link:hover {
+    transition: all 0.2s ease-out;
+    color: #808080 !important;
+    text-decoration-style:-moz-none;
+}
