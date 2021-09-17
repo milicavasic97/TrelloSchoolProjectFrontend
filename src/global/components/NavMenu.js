@@ -39,7 +39,7 @@ export const NavMenu = () => {
                             </DropdownToggle>
                             <DropdownMenu>
                                 <DropdownItem header>Ime Prezime</DropdownItem>
-                                <DropdownItem><FiSettings/> Podesavanja</DropdownItem>
+                                <DropdownItem><FiSettings/> Podesavanja naloga</DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem  onClick={handleLogOut}><FiLogOut /> Log out</DropdownItem>
                             </DropdownMenu>

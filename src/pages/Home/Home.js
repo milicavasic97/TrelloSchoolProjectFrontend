@@ -1,12 +1,13 @@
 import React from 'react';
-import { Col, Container, Row, Nav, NavItem, NavLink } from 'reactstrap';
+import { Col, Container, Row } from 'reactstrap';
 import './Home.css';
 import { Boards } from './components/Boards';
 import { Organisations } from './components/Organisations';
 
-
 export const Home = () => {
 
+
+    
 
     return (
         <div className="home-background">
@@ -21,14 +22,7 @@ export const Home = () => {
                                 <h2>Organisation name</h2>
                                 <h3>description</h3>
                             </div>
-                            <Nav tabs className="org-info-nav-menu">
-                                <NavItem>
-                                    <NavLink href="#" className="active">Boards</NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink href="#">Members</NavLink>
-                                </NavItem>
-                            </Nav>
+                            
                             <Boards />
                         </Col>
                     </Row>

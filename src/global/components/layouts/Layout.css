@@ -7,3 +7,15 @@
     overflow-y: auto;
     overflow-x: auto;
 }
+
+.trello-modal .modal-content{
+    background-color: #f8e9d5 !important;
+}
+
+.trello-modal .modal-header {
+    border-bottom: none !important;
+}
+
+.trello-modal .modal-footer {
+    border-top: none !important;
+}

@@ -6,6 +6,7 @@ import React from 'react';
 import { LoginLayout } from './global/components/layouts/LoginLayout';
 import { Layout } from './global/components/layouts/Layout';
 import { Home } from './pages/Home/Home';
+import { Board } from './pages/Board/Board';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <Route path={["/login"]}>
         <LoginLayout>
           <Switch>
-            <Route path="/login" component={Login} />
+            <Route exact path="/login" component={Login} />
           </Switch>
         </LoginLayout>
       </Route>
@@ -21,7 +22,10 @@ function App() {
       <Route path={["/"]}>
         <Layout>
           <Switch>
-            <Route path='/' component={Home} />
+            <Route exact path='/' component={Home} />
+            <Route exact path="/board/:id" render={(props) => (
+              <Board id={props.match.params.id} />
+            )} />
           </Switch>
         </Layout>
       </Route>
