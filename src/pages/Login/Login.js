@@ -1,15 +1,32 @@
-import React from 'react';
-import { InputGroup, Button, Input } from 'reactstrap';
+import React, { useEffect, useState } from 'react';
+import { InputGroup, Button, Input, Form, FormGroup } from 'reactstrap';
 import './Login.css';
 import { FiTrello } from "react-icons/fi";
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../redux/slices/memberSlice';
 
 export const Login = () => {
-    const history = useHistory();
+    const dispatch = useDispatch();
+    const { loading } = useSelector((state) => state.members);
+    const [username, setUsername] = useState("admin");
+    const [password, setPassword] = useState("admin");
+    const [credentials, setCredentials] = useState({
+        username: "admin",
+        password: "admin",
+    });
+
+    // useEffect(() => {
+    //     const { username } =  credentials;
+    //     if(!username) return;
+    //     dispatch(login(credentials));
+    //     setSubmit(false);
+    // }, [submit]);
+
 
     function handleClick() {
-        //  handle login and add validations
-        history.push("/");
+        setCredentials(username, password);
+        dispatch(login({username, password}));
       }
 
     return (
@@ -18,19 +35,25 @@ export const Login = () => {
                 <FiTrello />
                 Trello
             </h1>
-            <div className="trello-login-container">
-                <InputGroup>
-                    <Input type='email' placeholder="Username..." className="login-input" />
-                </InputGroup>
+            <Form className="trello-login-container" onSubmit={handleClick}>
+                <FormGroup>
+                    <Input name={username} type='text' 
+                        placeholder="Username..." className="login-input" 
+                         onChange={(e) => setUsername(`${e.target.value}`)} 
+                    />
+                </FormGroup>
                 <br/>
-                <InputGroup>
-                    <Input type='password' placeholder="Password..." className="login-input" />
-                </InputGroup>
+                <FormGroup>
+                    <Input name={password} type='password' 
+                        placeholder="Password..." className="login-input"
+                         onChange={(e) => setPassword(`${e.target.value}`)} 
+                    />
+                </FormGroup>
                 <br/>
-                <Button color="secondary" className="login-button" onClick={handleClick}>
+                <Button type='submit' color="secondary" className="login-button">
                     LOGIN
                 </Button>
-            </div>
+            </Form>
         </div>
     )
 }

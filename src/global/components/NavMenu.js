@@ -4,16 +4,19 @@ import './NavMenu.css';
 import '../styles/Fonts.css';
 import { FiHome, FiLogOut, FiSettings, FiTrello, FiUser } from 'react-icons/fi';
 import { Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavItem } from 'reactstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../redux/slices/memberSlice';
 
 
-export const NavMenu = () => {
+export const NavMenu = (props) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggle = () => setDropdownOpen(!dropdownOpen);
-    const history = useHistory();
+    const dispatch = useDispatch();
+
+    const {member, loading} = useSelector((state) => state.members);
 
     function handleLogOut() {
-        //  handle logout and add validations
-        history.push("/login");
+        dispatch(logout());
       }
 
     return (
@@ -38,7 +41,7 @@ export const NavMenu = () => {
                                 <FiUser />
                             </DropdownToggle>
                             <DropdownMenu>
-                                <DropdownItem header>Ime Prezime</DropdownItem>
+                                <DropdownItem header>{member.fullName}</DropdownItem>
                                 <DropdownItem><FiSettings/> Podesavanja naloga</DropdownItem>
                                 <DropdownItem divider />
                                 <DropdownItem  onClick={handleLogOut}><FiLogOut /> Log out</DropdownItem>

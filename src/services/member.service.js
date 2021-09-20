@@ -14,7 +14,14 @@ export const login = (username, password) =>
 export const signUp = (member) => instance.post("/sign-up", member);
 
 export const state = () => {
-    securedInstance.get("/state").then((responese) => responese.data);
+    return securedInstance.get("/state").then((responese) => responese.data)
 };
 
 export const logout = () => sessionStorage.removeItem("auth");
+
+export default {
+    login,
+    signUp,
+    state,
+    logout
+};
