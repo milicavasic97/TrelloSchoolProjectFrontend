@@ -1,36 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { InputGroup, Button, Input, Form, FormGroup } from 'reactstrap';
+import { Button, Input, Form, FormGroup, Label } from 'reactstrap';
 import './Login.css';
 import { FiTrello } from "react-icons/fi";
-import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/slices/memberSlice';
+import { Button as ButtonMUI } from '@material-ui/core';
 
 export const Login = () => {
     const dispatch = useDispatch();
     const { loading } = useSelector((state) => state.members);
     const [username, setUsername] = useState("admin");
     const [password, setPassword] = useState("admin");
-    const [credentials, setCredentials] = useState({
-        username: "admin",
-        password: "admin",
-    });
-
-    // useEffect(() => {
-    //     const { username } =  credentials;
-    //     if(!username) return;
-    //     dispatch(login(credentials));
-    //     setSubmit(false);
-    // }, [submit]);
-
 
     function handleClick() {
-        setCredentials(username, password);
         dispatch(login({username, password}));
       }
 
     return (
         <div className="login-page">
+            <Button className="sign-up-button" >SIGN UP</Button>
             <h1 className="trello-heading abril-fatface-font">
                 <FiTrello />
                 Trello
@@ -53,6 +41,7 @@ export const Login = () => {
                 <Button type='submit' color="secondary" className="login-button">
                     LOGIN
                 </Button>
+                <Label className="forgot-password">Zaboravili ste lozinku?</Label>
             </Form>
         </div>
     )

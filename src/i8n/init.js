@@ -3,7 +3,7 @@ import { initReactI18next } from "react-i18next";
 import en from "./en.json";
 import sr from "./sr.json";
 
-export const supportLanguages = ["en", "sr"];
+export const supportedLanguages = ["en", "sr"];
 
 const initializeI18N = () => {
     i18next.use(initReactI18next).init({
