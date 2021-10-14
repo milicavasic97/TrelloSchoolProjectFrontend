@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { authState } from "./redux/slices/memberSlice";
 import { Loading } from "./global/components/Loading";
 import { Invitations } from "./pages/Invitations/Invitations";
+import { ToastContainer } from "react-toastify";
 
 // initializeI18N();
 
@@ -27,7 +28,12 @@ function App() {
     return <Loading />;
   }
   if (!authenticated) {
-    return <Login />;
+    return (
+      <div>
+        <ToastContainer autoClose={3000} />
+        <Login />
+      </div>
+    );
   }
   return (
     <BrowserRouter>

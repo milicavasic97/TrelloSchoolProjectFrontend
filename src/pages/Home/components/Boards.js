@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Card,
   CardTitle,
@@ -24,9 +24,14 @@ export const Boards = () => {
   const [boardsList, setBoardsList] = useState(boards);
   const dispatch = useDispatch();
   const [addModal, setAddModal] = useState(false);
-  const toggle = () => setAddModal(!addModal);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const nameRef = useRef();
+
+  const toggle = () => {
+    setAddModal(!addModal);
+    setName("");
+  };
 
   const saveBoard = () => {
     const newBoard = {
@@ -62,7 +67,7 @@ export const Boards = () => {
             onClick={toggle}
           >
             <h5 className="home-board-content ">
-              <FiPlus /> Dodaj novi board...
+              <FiPlus /> Add new board...
             </h5>
           </div>
         </Col>
@@ -70,17 +75,17 @@ export const Boards = () => {
       </Row>
 
       <Modal isOpen={addModal} toggle={toggle} className="trello-modal">
-        <ModalHeader>Dodaj novi board</ModalHeader>
+        <ModalHeader>Add new board</ModalHeader>
         <ModalBody>
           <FormGroup row>
             <Label for="board-name-id" sm={2}>
-              Naziv
+              Name
             </Label>
             <Col sm={10}>
               <Input
                 id="board-name-id"
                 type="text"
-                defaultValue={name}
+                value={name}
                 placeholder="Unseite naziv boarda..."
                 onChange={(e) => setName(e.target.value)}
               />
@@ -89,13 +94,13 @@ export const Boards = () => {
           <br />
           <FormGroup row>
             <Label for="board-desc-id" sm={2}>
-              Opis
+              Description
             </Label>
             <Col sm={10}>
               <Input
                 id="board-desc-id"
                 type="textarea"
-                defaultValue={description}
+                value={description}
                 placeholder="Unesite opis boarda..."
                 onChange={(e) => setDescription(e.target.value)}
               />
@@ -104,10 +109,10 @@ export const Boards = () => {
         </ModalBody>
         <ModalFooter>
           <Button color="primary" onClick={saveBoard}>
-            Sacuvaj
+            Save
           </Button>
           <Button color="secondary" onClick={toggle}>
-            Odustani
+            Cancel
           </Button>
         </ModalFooter>
       </Modal>

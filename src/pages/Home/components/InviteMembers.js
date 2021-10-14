@@ -33,8 +33,8 @@ export const InviteMembers = () => {
       })
       .then((result) => toast.success("Invited successfully!"))
       .catch((err) => {
-        if (err.response.status === 409) {
-          toast.error("Already invited!");
+        if (err.response.data !== null) {
+          toast.error(err.response.data);
         } else handleInsertError(err);
       });
 

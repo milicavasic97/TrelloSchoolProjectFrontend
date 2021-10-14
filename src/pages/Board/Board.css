@@ -124,3 +124,63 @@
 .card-modal {
   height: 90vh !important;
 } */
+
+/* .card-members-table {
+  width: 100%;
+} */
+
+.card-author-td {
+  padding-right: 25px;
+  vertical-align: text-top;
+}
+
+.card-member-list {
+  height: 70px;
+  width: 260px;
+  overflow-y: auto;
+  background-color: white;
+  border-radius: 5px;
+  border: 0.2px solid gray;
+  padding: 5px;
+}
+
+.no-members {
+  font-size: small;
+}
+
+.x-icon {
+  padding-right: 2px;
+}
+
+.card-settings-button {
+  float: right;
+}
+
+.no-comments {
+  margin: 10px;
+  font-style: italic;
+  font-size: large;
+}
+
+.comment-text {
+  margin: 10px;
+}
+
+.comment-author {
+  font-weight: bold;
+}
+
+.comment-trash-icon {
+  float: right;
+}
+.comment-trash-icon:hover {
+  color: red;
+}
+
+.card-comment {
+  background-color: silver;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}

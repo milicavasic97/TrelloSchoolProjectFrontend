@@ -1,42 +1,62 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { AiFillEdit } from "react-icons/ai";
 import { Draggable } from "react-beautiful-dnd";
 import { AreYouSureModal } from "../../../global/components/AreYouSureModal";
 import { toast } from "react-toastify";
 import cardService from "../../../services/card.service";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getComments, setReloadLists } from "../../../redux/slices/boardSlice";
 import {
-  setReloadCards,
-  setReloadLists,
-} from "../../../redux/slices/boardSlice";
-import { handleDeleteError } from "../../../util/errorHandlers";
+  handleDeleteError,
+  handleEditError,
+} from "../../../util/errorHandlers";
 import {
   Modal,
   ModalHeader,
   ModalBody,
-  ModalFooter,
   Container,
   Row,
   Col,
+  Input,
+  FormGroup,
+  Label,
+  Button,
 } from "reactstrap";
+import { CardSettings } from "./CardSettings";
+import { CardMembers } from "./CardMembers";
+import { CardComments } from "./CardComments";
 
 export const TrelloCard = (props) => {
   const dispatch = useDispatch();
+  const { member } = useSelector((state) => state.members);
+  const [cardData, setCardData] = useState(props.data);
 
   const [showModal, setShowModal] = useState(false);
   const toggle = () => {
+    console.log(cardData);
     setShowModal(!showModal);
   };
 
   const [showCardModal, setShowCardModal] = useState(false);
   const toggleCardModal = () => {
     setShowCardModal(!showCardModal);
+    // dispatch(getComments(cardData.id));
+  };
+
+  const updateCardHandler = (card) => {
+    cardService
+      .updateCard(card)
+      .then((response) => {
+        toast.success("Successfully updated!");
+        setCardData(response.data);
+      })
+      .catch((err) => handleEditError(err));
   };
 
   var deleteCard = function () {
     cardService
-      .deleteCard(props.data.id)
+      .deleteCard(cardData.id)
       .then((response) => {
         toast.success("Successfully deleted!");
         dispatch(setReloadLists());
@@ -47,7 +67,7 @@ export const TrelloCard = (props) => {
 
   return (
     <>
-      <Draggable draggableId={props.data.id} index={props.id}>
+      <Draggable draggableId={cardData.id} index={props.id}>
         {(provided) => (
           <div
             className="trello-card-container"
@@ -61,7 +81,7 @@ export const TrelloCard = (props) => {
               <AiFillEdit className="edit-icon" onClick={toggleCardModal} />
               <FaTrash className="trash-icon" onClick={toggle} />
             </div>
-            <div className="trello-card-name">{props.data.name}</div>
+            <div className="trello-card-name">{cardData.name}</div>
           </div>
         )}
       </Draggable>
@@ -78,14 +98,28 @@ export const TrelloCard = (props) => {
         className="trello-modal"
         size="lg"
       >
-        <ModalHeader>Card settings</ModalHeader>
+        <ModalHeader />
         <ModalBody>
           <Container>
             <Row>
-              <Col></Col>
-              <Col></Col>
+              <Col>
+                <h5>Description</h5>
+                <hr />
+                <CardSettings data={cardData} updateFunc={updateCardHandler} />
+              </Col>
+              <Col className="card-members-col">
+                <h5>Members</h5>
+                <hr />
+                <CardMembers data={cardData} />
+              </Col>
             </Row>
-            <Row></Row>
+            <Row>
+              <Col>
+                <h5>Comments</h5>
+                <hr />
+                <CardComments cardData={cardData} />
+              </Col>
+            </Row>
           </Container>
         </ModalBody>
       </Modal>

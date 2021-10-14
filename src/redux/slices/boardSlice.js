@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import boardService from "../../services/board.service";
+import cardService from "../../services/card.service";
 import listService from "../../services/list.service";
 
 export const getBoardById = createAsyncThunk("getBoardById", (boardId) =>
@@ -8,6 +9,10 @@ export const getBoardById = createAsyncThunk("getBoardById", (boardId) =>
 
 export const getLists = createAsyncThunk("getLists", (boardId) =>
   boardService.getLists(boardId)
+);
+
+export const getComments = createAsyncThunk("getComments", (cardId) =>
+  cardService.getComments(cardId)
 );
 
 export const insertList = createAsyncThunk(
@@ -45,6 +50,7 @@ const boardSlice = createSlice({
   initialState: {
     board: null,
     trelloLists: [],
+    comments: [],
     reloadLists: false,
     reloadCards: false,
   },
@@ -63,6 +69,9 @@ const boardSlice = createSlice({
     },
     [updateBoard.fulfilled]: (state, action) => {
       state.board = action.payload;
+    },
+    [getComments.fulfilled]: (state, action) => {
+      state.comments = action.payload;
     },
   },
 });

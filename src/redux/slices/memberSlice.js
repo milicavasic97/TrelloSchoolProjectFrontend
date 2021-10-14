@@ -69,7 +69,7 @@ const memberSlice = createSlice({
       for (var i = 0; i < action.payload.length; i++) {
         state.membersForDropdown[i] = {
           value: action.payload[i].email,
-          label: action.payload[i].username,
+          label: action.payload[i].fullName,
         };
       }
     },

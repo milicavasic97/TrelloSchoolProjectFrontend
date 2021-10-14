@@ -44,3 +44,12 @@
 .trash-icon:hover {
   color: #6a0c1a;
 }
+
+.hide-validation {
+  opacity: 0;
+}
+
+.validation {
+  color: red;
+  font-size: small;
+}

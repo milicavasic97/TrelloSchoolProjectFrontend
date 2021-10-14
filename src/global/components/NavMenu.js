@@ -87,9 +87,9 @@ export const NavMenu = (props) => {
               </DropdownToggle>
               <DropdownMenu>
                 <DropdownItem header>{member.fullName}</DropdownItem>
-                <DropdownItem>
+                {/* <DropdownItem>
                   <FiSettings /> Podesavanja naloga
-                </DropdownItem>
+                </DropdownItem> */}
                 <DropdownItem divider />
                 <DropdownItem onClick={handleLogOut}>
                   <FiLogOut /> Log out

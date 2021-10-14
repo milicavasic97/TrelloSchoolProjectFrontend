@@ -45,7 +45,6 @@ export const Board = (props) => {
 
   useEffect(() => {
     setTrelloListsState([...trelloLists]);
-    // console.log(trelloLists);
   }, [trelloLists]);
 
   useEffect(() => {
@@ -82,43 +81,8 @@ export const Board = (props) => {
     } else if (e.key === "Escape") changeFunc(false);
   };
 
-  const onDragEnd = (result, columns, setColumns) => {
+  const onDragEnd = (result) => {
     if (!result.destination) return;
-    const { source, destination } = result;
-
-    // if (source.droppableId !== destination.droppableId) {
-    //   const sourceColumn = columns[source.droppableId];
-    //   const destColumn = columns[destination.droppableId];
-    //   const sourceItems = [...sourceColumn.cards];
-    //   const destItems = [...destColumn.cards];
-    //   const [removed] = sourceItems.splice(source.index, 1);
-    //   destItems.splice(destination.index, 0, removed);
-    //   setColumns({
-    //     ...columns,
-    //     [source.droppableId]: {
-    //       ...sourceColumn,
-    //       cards: sourceItems,
-    //     },
-    //     [destination.droppableId]: {
-    //       ...destColumn,
-    //       cards: destItems,
-    //     },
-    //   });
-    // } else {
-    //   const column = columns[source.droppableId];
-    //   const copiedItems = [...column.items];
-    //   const [removed] = copiedItems.splice(source.index, 1);
-    //   copiedItems.splice(destination.index, 0, removed);
-    //   setColumns({
-    //     ...columns,
-    //     [source.droppableId]: {
-    //       ...column,
-    //       items: copiedItems,
-    //     },
-    //   });
-    // }
-
-    // console.log(result);
 
     let cardUpdate = {
       id: result.draggableId,
@@ -155,13 +119,7 @@ export const Board = (props) => {
           )}
         </span>
         <div className="trello-lists-scroll-menu">
-          <DragDropContext
-            onDragEnd={(result) =>
-              onDragEnd(result, trelloListsState, (state) =>
-                setTrelloListsState()
-              )
-            }
-          >
+          <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
             <ScrollMenu>
               {trelloListsState.map((data, index) => {
                 return <TrelloList key={data.id} data={data} index={index} />;

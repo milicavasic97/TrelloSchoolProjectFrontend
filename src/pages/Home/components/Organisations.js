@@ -1,8 +1,10 @@
 import { Button, Tooltip } from "@material-ui/core";
+import { unwrapResult } from "@reduxjs/toolkit";
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { FiPlus } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import {
   Modal,
   ModalBody,
@@ -19,6 +21,7 @@ import {
   getAllOrganisationsForMe,
   insert,
 } from "../../../redux/slices/organisationSlice";
+import { handleInsertError } from "../../../util/errorHandlers";
 import { OrganisationCollapse } from "./OrganisationCollapse";
 
 export const Organisations = () => {
@@ -46,14 +49,19 @@ export const Organisations = () => {
         displayName: orgDisplayName,
         desc: orgDescription,
       })
-    );
-    toggle();
+    )
+      .then(unwrapResult)
+      .then((result) => {
+        toast.success("Successfully added!");
+        toggle();
+      })
+      .catch((err) => handleInsertError(err));
   };
 
   const [addModal, setAddModal] = useState(false);
   const toggle = () => {
     setAddModal(!addModal);
-    setOrgName("");
+    setOrgDisplayName("");
     setOrgDescription("");
   };
 
@@ -61,7 +69,7 @@ export const Organisations = () => {
     <div className="trello-organisations-container rajdhani-font">
       <div className="trello-org-add-new">
         WORKSPACES
-        <Tooltip title="Dodaj organizaciju" arrow>
+        <Tooltip title="Add workspace" arrow>
           <Button onClick={toggle} className="trello-add-org-button">
             <FiPlus className="trello-org-plus" />
           </Button>
@@ -95,13 +103,13 @@ export const Organisations = () => {
           <Form>
             <FormGroup row>
               <Label for="org-displayName" sm={2}>
-                Naziv
+                Name
               </Label>
               <Col sm={10}>
                 <Input
                   id="org-name"
                   type="text"
-                  defaultValue={orgDisplayName}
+                  value={orgDisplayName}
                   placeholder="Unseite naziv organizacije..."
                   onChange={(e) =>
                     changeValueHandler(e, (value) => setOrgDisplayName(value))
@@ -112,13 +120,13 @@ export const Organisations = () => {
             <br />
             <FormGroup row>
               <Label for="org-description" sm={2}>
-                Opis
+                Description
               </Label>
               <Col sm={10}>
                 <Input
                   id="org-description"
                   type="textarea"
-                  defaultValue={orgDescription}
+                  value={orgDescription}
                   placeholder="Unseite opis za organizaciju..."
                   onChange={(e) =>
                     changeValueHandler(e, (value) => setOrgDescription(value))
@@ -130,10 +138,10 @@ export const Organisations = () => {
         </ModalBody>
         <ModalFooter>
           <ButtonRS color="primary" onClick={saveOrganisation}>
-            Sacuvaj
+            Save
           </ButtonRS>
           <ButtonRS color="secondary" onClick={toggle}>
-            Odustani
+            Cancel
           </ButtonRS>
         </ModalFooter>
       </Modal>
