@@ -1,9 +1,25 @@
-.page-padding-top
-{
-    padding-top: 80px;
+.page-padding-top {
+  padding-top: 80px;
 }
 
 .trello-layout-overflow {
-    overflow-y: auto;
-    overflow-x: auto;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.trello-modal {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.trello-modal .modal-content {
+  background-color: #d5dbdb !important;
+}
+
+.trello-modal .modal-header {
+  border-bottom: none !important;
+}
+
+.trello-modal .modal-footer {
+  border-top: none !important;
 }

@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.edit-icon:hover {
+  color: #1c5962;
+}
+
+.trash-icon:hover {
+  color: #6a0c1a;
+}
+
+.hide-validation {
+  opacity: 0;
+}
+
+.validation {
+  color: red;
+  font-size: small;
+}

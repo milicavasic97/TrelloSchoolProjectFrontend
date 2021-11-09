@@ -1,0 +1,15 @@
+{
+    "en": "Engleski",
+    "sr": "Srpski",
+    "save": "Sačuvajte",
+    "cancel": "Odustanite",
+    "insertSuccess": "Uspješno dodavanje!",
+    "insertFailed": "Neuspješno dodavanje!",
+    "editSuccess": "Uspješna izmjena!",
+    "editFailed": "Neuspješna izmjena!",
+    "deleteSuccess": "Uspješno brisanje!",
+    "deleteFailed": "Neuspješno brisanje!",
+    "home": {
+        "organisations": "Organizacije"
+    }
+}

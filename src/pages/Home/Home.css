@@ -1,96 +1,182 @@
 .home-background {
-    background-image: linear-gradient(0deg, rgba(0,0,0,0.1) 0%,
-        rgba(0,0,0,0.1) 50%,rgba(0,0,0,0.1) 100% ),
-        url("../../assets/background2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    url("../../assets/background5.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  /* background-color:  #edbb99; */
 
-    width: 100%;
-    height: 100vh;
-    margin-top: 0px !important;
+  min-width: 100%;
+  min-height: 100vh;
+  margin: auto;
 }
 
 .trello-organisations-container {
-    width: 80%;
-    height: 39vw;
-    padding: 5%;
-    background-color: #fdebd0;
-    opacity: .9;
-    border-radius: 15px;
-    padding-top: 2%;
+  width: 100%;
+  padding: 5%;
+  /* background-color: #fdebd0; */
+  background-color: #f5eef8;
+  opacity: 0.9;
+  border-radius: 15px;
+  padding-top: 2%;
 }
 
-.trello-home-org-list {
+/* .trello-home-org-list {
     height: 95%;
     overflow-y: auto;
-}
+} */
 
 .trello-org-add-new {
-    width: 100%;
-    font-size: larger;
+  padding-top: 3%;
+  width: 100%;
+  font-size: x-large;
 }
 
 .trello-org-plus {
-    float: right;
-    font-size: x-large;
+  float: right;
+  font-size: x-large;
 }
 
 .trello-add-org-button {
-    float: right;
+  float: right;
 }
 
 .button-max-width {
-    width: 100%;
+  width: 100%;
 }
 
 .button-max-width .MuiButton-label {
-    justify-content: unset !important;
+  justify-content: unset !important;
 }
 
 .button-org-color {
-    border-bottom: 3px solid  #fad7a0  !important;
+  border-bottom: 3px solid #abb2b9 !important;
 }
 
 .home-board-card {
-    width: 10rem;
-    height: 8rem;
-    margin: 5px;
+  border-radius: 10px;
+  width: 13rem;
+  height: 9rem;
+  margin: 5px;
+}
+.home-board-card:hover {
+  background-color: #1a5276 !important;
+  border-color: #323 !important;
+}
+
+.home-board-card a {
+  color: white !important;
+}
+
+.home-board-content {
+  padding: 5%;
+  padding-top: 10%;
+  color: white;
 }
 
 .home-board-card-color {
-    background-color: #333 !important;
-    border-color: #333 !important;
+  background-color: #333 !important;
+  border-color: #333 !important;
+}
+
+.home-board-card-color:hover {
+  background-color: #154360 !important;
+  border-color: #323 !important;
+}
+
+.home-board-card-col {
+  max-width: 13rem;
 }
 
 .add-board-card-color {
-    background-color:   #4d5656   !important;
-    border-color:   #4d5656   !important;
+  background-color: #4d5656 !important;
+  border-color: #4d5656 !important;
 }
 
 .trello-org-info-container {
-    width: 100%;
-    height: 29vw;
+  width: 100%;
+  /* height: 65vh;
     opacity: .9;
     padding: 2%;
     border: 1px solid #000;
     border-top: none;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    overflow-y: auto;
+    border-radius: 15px;
+    overflow-y: auto; */
+}
+
+.trello-org-info-container a {
+  text-decoration: none !important;
 }
 
 .nav-link.active {
-    background: none !important;
+  background: none !important;
 }
 
 .org-info-nav-menu a.nav-link {
-    color: #000 !important;
+  color: #000 !important;
 }
-  
+
 .org-info-nav-menu a.nav-link:hover {
-    transition: all 0.2s ease-out;
-    color: #808080 !important;
-    text-decoration-style:-moz-none;
+  transition: all 0.2s ease-out;
+  color: #808080 !important;
+  text-decoration-style: -moz-none;
+}
+
+.organisation-input-org-name {
+  min-height: 50px;
+  font-size: 20px !important;
+  width: 50%;
+}
+
+.organisation-input-org-descr {
+  width: 70%;
+}
+
+.no-workspaces {
+  color: gray;
+}
+
+.no-workspace-selected {
+  font-size: x-large;
+  padding-top: 5%;
+}
+
+.board-card-settings {
+  float: right;
+  padding-right: 10px;
+  padding-top: 5px;
+}
+
+.members-button {
+  background-color: #f5eef8;
+  border: none;
+  border-bottom: 3px solid #abb2b9 !important;
+  border-radius: 5px;
+  color: #000;
+  height: 40px;
+}
+
+.members-collapse {
+  background-color: #e5e8e8;
+  min-height: 100px;
+}
+
+.members-form-group {
+  width: 70%;
+  margin: auto;
+  padding: 20px;
+}
+
+.add-member-button {
+  width: 100%;
+}
+
+.group-item-x {
+  /* float: right; */
 }

@@ -1,0 +1,186 @@
+.trello-list-container {
+  width: 300px;
+  /* height: 65vh; */
+  padding: 5%;
+  /* background-color: #fdebd0; */
+  background-color: #f5eef8;
+  /* opacity: 0.9; */
+  border-radius: 7px;
+  border: #aab7b8 0.9px solid;
+  padding-top: 2%;
+  margin: 15px;
+  /* z-index: -999 !important; */
+}
+.droppable-list {
+  min-height: 1px;
+}
+
+.trello-list-table {
+  width: 100%;
+  /* table-layout: fixed; */
+}
+
+.trello-list-board-name {
+  font-size: 1.9em;
+  margin-left: 10px;
+  vertical-align: bottom;
+}
+
+.trello-list-buttons {
+  font-size: 0.9em;
+  vertical-align: bottom;
+  background-color: #fdebd0;
+  margin-left: 10px;
+  color: black;
+}
+
+/* .trello-list-name-td {
+    width: 100% !important;
+    word-wrap: break-word;
+}
+
+.trello-list-settings-td {
+    /* width: 30%;
+    vertical-align: top; */
+/* color: #000 !important;
+    float: right;
+} 
+
+    .trello-list-settings-td a.nav-link{
+        color: #000 !important;
+    } */
+
+.trello-list-header {
+  width: 100%;
+}
+
+.trello-list-settings {
+  float: right;
+  padding-right: 10px;
+  padding-top: 5px;
+}
+
+.trello-list-name {
+  word-wrap: break-word;
+}
+
+/* 
+.trello-list-cards {
+    height: 80%;
+    overflow-y:auto;
+} */
+
+.trello-card-container {
+  width: 100%;
+  min-height: 60px;
+  background-color: white;
+  margin-bottom: 15px;
+  border-radius: 7px;
+  border: #d5dbdb 0.5px solid;
+  /* z-index: 9999999; */
+}
+
+.trello-card-settings {
+  float: right;
+  padding-right: 10px;
+  padding-top: 5px;
+}
+
+.trello-card-name {
+  padding-top: 40px;
+  width: 100%;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  word-wrap: break-word;
+}
+
+.trello-card-settings .trash-icon {
+  height: 12px;
+}
+
+.trello-lists-scroll-menu {
+  margin: auto;
+  margin-top: 10px;
+}
+
+.add-new-list-input {
+  padding-top: 4%;
+  width: 100%;
+}
+
+.add-new-card-input {
+  padding-top: 5%;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.board-input-name {
+  min-height: 50px;
+  font-size: 20px !important;
+  width: 30%;
+}
+/* 
+.card-modal {
+  height: 90vh !important;
+} */
+
+/* .card-members-table {
+  width: 100%;
+} */
+
+.card-author-td {
+  padding-right: 25px;
+  vertical-align: text-top;
+}
+
+.card-member-list {
+  height: 70px;
+  width: 260px;
+  overflow-y: auto;
+  background-color: white;
+  border-radius: 5px;
+  border: 0.2px solid gray;
+  padding: 5px;
+}
+
+.no-members {
+  font-size: small;
+}
+
+.x-icon {
+  padding-right: 2px;
+}
+
+.card-settings-button {
+  float: right;
+}
+
+.no-comments {
+  margin: 10px;
+  font-style: italic;
+  font-size: large;
+}
+
+.comment-text {
+  margin: 10px;
+}
+
+.comment-author {
+  font-weight: bold;
+}
+
+.comment-trash-icon {
+  float: right;
+}
+.comment-trash-icon:hover {
+  color: red;
+}
+
+.card-comment {
+  background-color: silver;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}

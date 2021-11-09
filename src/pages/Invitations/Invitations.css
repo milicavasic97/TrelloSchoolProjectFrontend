@@ -1,0 +1,30 @@
+.invitations-container {
+  margin: auto;
+  width: 70%;
+  padding: 5%;
+  /* background-color: #fdebd0; */
+  background-color: #f5eef8;
+  opacity: 0.9;
+  border-radius: 15px;
+  padding-top: 2%;
+}
+
+.single-invitation {
+  /* width: 70%; */
+  padding-right: 100px;
+  padding-left: 100px;
+}
+
+.invitation-button {
+  width: 100%;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.invtation-button-accept {
+  background-color: lightblue;
+}
+
+.invtation-button-reject {
+  background-color: lightcoral;
+}
